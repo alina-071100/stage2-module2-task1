@@ -10,16 +10,14 @@
 <div style="margin-left:10px; margin-top:5px;">
     <div class="w3-container ">
         <h2 class="title w3-text-black">Users</h2>
-        <%
-            Set<User> users = (Set<User>) request.getAttribute("users");
-            if (users != null && !users.isEmpty()) {
-                out.println("<ol>");
-                for (User user : users) {
-                    out.println("<li>" + user.getFirstName() + " " + user.getLastName() + "</li>");
-                }
-                out.println("</ol>");
-            } else out.println("<p>There are no users yet!</p>");
-        %>
+        <%Set<User> users = (Set<User>) request.getAttribute("users");%>
+        <%if (users != null && !users.isEmpty()) {%>
+        <ol>
+            <% for (User user : users) {%>
+            <li><%=user.getFirstName() + " " + user.getLastName()%> </li>
+            <%}%>
+        </ol>
+        <% } else %><p>There are no users yet!</p>
         <br>
         <div>
             <button class="w3-btn w3-green w3-round-large" onclick="location.href='/add'">Add User</button>

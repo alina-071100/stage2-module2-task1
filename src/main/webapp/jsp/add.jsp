@@ -1,6 +1,5 @@
 <%@ page import="com.example.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,12 +7,10 @@
 </head>
 <body>
 <div class="w3-container" style="margin-left:10px; width:400px;">
-    <%
-        User user = (User) request.getAttribute("user");
-        if (user != null) {
-            out.println("<p>User '" + user.getFirstName() + " " + user.getLastName() + "' added!</p>");
-        }
-    %>
+    <%     User user = (User) request.getAttribute("user");
+        if (user != null) {%>
+    <p>User <%=user.getFirstName() + " " + user.getLastName() %> added!</p>
+    <%}%>
     <h3 class="title w3-text-black">
         <span>Add user</span>
     </h3>
